@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gurucharan Reddy Nambi | AI &amp; Cybersecurity</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#03080c;--tx:#bcd0d8;--dim:#5d7783;--g:#00ff9c;--c:#22d3ee;--r:#ff4d6d;--ln:rgba(0,255,156,.2);--pn:rgba(5,16,22,.78);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.7 "JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+#rain{position:fixed;inset:0;width:100%;height:100%;opacity:.16;z-index:0}
+.grid{position:fixed;inset:0;z-index:0;background:radial-gradient(60% 50% at 50% 0,rgba(0,255,156,.09),transparent),linear-gradient(rgba(0,255,156,.045) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(0,255,156,.045) 1px,transparent 1px) 0 0/44px 44px;-webkit-mask-image:linear-gradient(#000 40%,transparent);mask-image:linear-gradient(#000 40%,transparent)}
+.scan{position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.22) 3px),radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(0,0,0,.6))}
+a{color:var(--c);text-decoration:none}a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+/* typing */
+.ty .h{visibility:hidden}
+.ty i.cur{display:none;position:relative;width:0;height:1em;font-style:normal}
+.ty.on i.cur{display:inline-block}
+.ty i.cur::after{content:"";position:absolute;left:1px;top:.12em;width:.62em;height:1.15em;background:var(--g);box-shadow:0 0 8px var(--g);animation:bl .7s steps(1) infinite}
+.ty:nth-of-type(3n+2) i.cur::after{background:var(--c);box-shadow:0 0 8px var(--c)}
+.ty:nth-of-type(5n) i.cur::after{background:#fff;box-shadow:0 0 8px #fff}
+@keyframes bl{50%{opacity:0}}
+.blk{display:inline-block;width:.62em;height:1.1em;background:var(--g);vertical-align:text-bottom;animation:bl 1s steps(1) infinite;box-shadow:0 0 10px var(--g)}
+/* boot */
+#boot{position:fixed;inset:0;z-index:70;background:var(--bg);display:flex;flex-direction:column;justify-content:center;gap:4px;padding:0 max(20px,calc(50% - 300px));color:var(--g);transition:opacity .5s}
+#boot.out{opacity:0;pointer-events:none}
+#boot .pb{height:4px;background:var(--ln);margin-top:14px;overflow:hidden}#boot .pb i{display:block;height:100%;width:0;background:var(--g);box-shadow:0 0 12px var(--g);transition:width 1.5s ease-out}
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:40;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:12px max(16px,calc(50% - 520px));background:rgba(3,8,12,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--ln)}
+.logo{font-weight:800;color:var(--g);text-shadow:0 0 10px rgba(0,255,156,.6);white-space:nowrap}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;overflow-x:auto;scrollbar-width:none}
+nav ul a{color:var(--tx);font-size:13px;white-space:nowrap}nav ul a::before{content:"./";color:var(--dim)}nav ul a:hover{color:var(--g);text-decoration:none}
+#skip{font:inherit;font-size:11px;color:var(--dim);background:none;border:1px solid var(--ln);padding:3px 9px;cursor:pointer;border-radius:3px}
+/* layout */
+main,footer{position:relative;z-index:2}
+.sec,#hero{max-width:1040px;margin:0 auto;padding:96px 20px 24px}
+#hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.pr{color:var(--g)}.pr::before{content:"root@gcr:~# ";color:var(--dim)}
+h1{margin:6px 0;font-size:clamp(30px,6.6vw,68px);line-height:1.05;font-weight:800;color:#eafff6;text-shadow:0 0 18px rgba(0,255,156,.55),2px 0 rgba(255,77,109,.45),-2px 0 rgba(34,211,238,.45);letter-spacing:-.02em}
+.sub{font-size:clamp(14px,2vw,17px);color:var(--tx);max-width:62ch}.sub b{color:var(--g);font-weight:500}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.btn{display:inline-block;padding:10px 20px;border:1px solid var(--g);color:var(--g);background:rgba(0,255,156,.06);border-radius:3px;transition:.2s}
+.btn:hover{background:var(--g);color:#03130c;text-decoration:none;box-shadow:0 0 22px rgba(0,255,156,.5)}
+.btn.alt{border-color:var(--c);color:var(--c);background:rgba(34,211,238,.05)}.btn.alt:hover{background:var(--c);color:#031317;box-shadow:0 0 22px rgba(34,211,238,.5)}
+.scrl{margin-top:30px;color:var(--dim);font-size:12px}
+h2{display:flex;align-items:center;gap:14px;margin:0 0 26px;font-size:clamp(20px,3.4vw,28px);font-weight:800;color:#eafff6}
+h2::before{content:attr(data-n);color:var(--g);font-size:13px;font-weight:500;border:1px solid var(--ln);padding:2px 8px}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--ln),transparent)}
+.win{position:relative;background:var(--pn);border:1px solid var(--ln);border-radius:4px;backdrop-filter:blur(4px);box-shadow:0 0 0 1px rgba(0,0,0,.4),0 18px 40px -22px rgba(0,255,156,.35)}
+.win::before,.win::after{content:"";position:absolute;width:12px;height:12px;border:2px solid var(--g);pointer-events:none}
+.win::before{top:-2px;left:-2px;border-right:0;border-bottom:0}.win::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.tb{display:flex;align-items:center;gap:7px;padding:8px 12px;border-bottom:1px solid var(--ln);color:var(--dim);font-size:12px}
+.tb::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--r);box-shadow:15px 0 #f5c451,30px 0 var(--g);margin-right:34px}
+.bd{padding:20px 22px}.bd p{margin:0 0 12px}.bd p:last-child{margin:0}.bd b{color:var(--g);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tags span{font-size:11.5px;color:var(--c);border:1px solid rgba(34,211,238,.35);padding:2px 9px;border-radius:2px;background:rgba(34,211,238,.06)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin-top:22px}
+.stats div{border:1px solid var(--ln);padding:14px;background:var(--pn);text-align:center;font-size:11.5px;color:var(--dim)}
+.stats strong{display:block;font-size:28px;color:var(--g);text-shadow:0 0 14px rgba(0,255,156,.5);font-weight:800}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.win h3{margin:0 0 4px;font-size:16px;color:#fff}.win small{color:var(--g);font-size:11.5px;display:block;margin-bottom:10px}
+.sk{margin:0 0 14px}.sk div{display:flex;justify-content:space-between;font-size:12.5px;margin-bottom:4px}.sk em{font-style:normal;color:var(--g)}
+.sk .tr{height:6px;background:rgba(0,255,156,.1);border-radius:1px;overflow:hidden}.sk .tr i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g),var(--c));box-shadow:0 0 10px rgba(0,255,156,.7);transition:width 1.8s cubic-bezier(.2,.8,.2,1)}
+pre.log{margin:14px 0 0;padding:10px 12px;background:#02060a;border:1px solid var(--ln);font:inherit;font-size:11.5px;color:var(--dim);white-space:pre-wrap;word-break:break-all}
+pre.log .r{color:var(--r)}
+.big{font-size:clamp(15px,3.4vw,24px);word-break:break-all;color:var(--g);text-shadow:0 0 14px rgba(0,255,156,.5)}
+footer{text-align:center;padding:50px 20px 60px;color:var(--dim);font-size:12px}
+@media (max-width:640px){nav ul{gap:12px}#skip{display:none}.tb::before{margin-right:30px}}
+@media (prefers-reduced-motion:reduce){#rain{display:none}*{transition:none!important}}
+.bd ul{margin:10px 0 0;padding-left:18px}.bd li{margin:0 0 6px;font-size:13px}.bd li::marker{color:var(--g)}
+</style>
+</head>
+<body>
+<canvas id="rain" aria-hidden="true"></canvas><div class="grid"></div><div class="scan"></div>
+<div id="boot"><div>// INITIALIZING PORTFOLIO...</div><div>[ OK ] loading profile modules</div><div>[ OK ] mounting experience, skills, projects</div><div>[ OK ] secure session established</div><div class="pb"><i></i></div></div>
+<nav><a class="logo" href="#hero">GCR_NAMBI</a>
+<ul><li><a href="#about">about</a></li><li><a href="#experience">experience</a></li><li><a href="#skills">skills</a></li><li><a href="#projects">projects</a></li><li><a href="#repos">github</a></li><li><a href="#contact">contact</a></li></ul>
+<button id="skip" type="button">skip typing</button></nav>
+<main>
+<header id="hero">
+<div class="pr">whoami</div>
+<h1>NAMBI GURUCHARAN REDDY</h1>
+<div class="sub"><b>B.Tech CSE (AI) @ IFHE</b> | AI &amp; Cybersecurity Enthusiast<br>Cyber Security Intern @ Elevate Labs · AI Media Intern @ Glowtech Solutions<br>Ethical Hacking · Network Security · Threat Analysis · Python <span class="blk"></span></div>
+<div class="cta"><a class="btn" href="#projects">View Projects</a><a class="btn alt" href="#contact">Get In Touch</a></div>
+<div class="scrl">ICFAI FOUNDATION FOR HIGHER EDUCATION ▼ scroll</div>
+</header>
+
+<section id="about" class="sec"><h2 data-n="01">ABOUT_ME</h2>
+<div class="win"><div class="tb"><span>~/about.txt</span></div><div class="bd">
+<p>I'm <b>Gurucharan Reddy Nambi</b>, an AI &amp; <b>cybersecurity</b> enthusiast and 3rd-year B.Tech CSE (AI) student at ICFAI Foundation for Higher Education.</p>
+<p>My focus is <b>ethical hacking</b>, <b>network security</b>, <b>cryptography</b>, and <b>threat analysis</b>, with foundational skills in Java. I'm detail-oriented, proactive, and committed to building secure, reliable systems while continuously strengthening my technical and practical cybersecurity expertise.</p>
+<p>I've interned at <b>Elevate Labs</b> (Cyber Security) and <b>Glowtech Solutions</b> (AI Media), earned the <b>AWS Certified Cloud Practitioner</b>, and won 1st place in my college's AI <b>Ideathon</b>.</p>
+<p>Beyond the terminal, I unwind with <b>guitar</b> 🎸 and <b>tennis</b> 🎾.</p>
+<div class="tags"><span>🔐 Ethical Hacking</span><span>🧠 AI / LLM</span><span>🎸 Guitar</span><span>🎾 Tennis</span></div>
+</div></div>
+<div class="stats"><div><strong>2</strong>INTERNSHIPS</div><div><strong>30+</strong>GITHUB REPOS</div><div><strong>3</strong>CERTIFICATIONS</div><div><strong>1ST</strong>AI IDEATHON</div><div><strong>∞</strong>CURIOSITY LEVEL</div></div>
+</section>
+
+<section id="experience" class="sec"><h2 data-n="02">EXPERIENCE.LOG</h2>
+<div class="two">
+<div class="win"><div class="tb"><span>~/internships/elevate-labs</span></div><div class="bd"><h3>Cyber Security Intern</h3><small>Elevate Labs · ONLINE · APRIL 2026</small><p>Worked on cybersecurity concepts, security testing methodologies, and network security practices in a remote setting, with a focus on information security and threat analysis.</p><div class="tags"><span>Security Testing</span><span>Network Security</span><span>Threat Analysis</span></div></div></div>
+<div class="win"><div class="tb"><span>~/internships/glowtech</span></div><div class="bd"><h3>AI Media Intern</h3><small>Glowtech Solutions · JULY 2025</small><p>Gained practical industry experience in a tech environment, building professional skills in AI and media-focused work.</p><div class="tags"><span>AI Media</span><span>Tech Solutions</span></div></div></div>
+</div>
+<h2 data-n="//" style="margin-top:40px">CERTIFICATIONS_&amp;_ACHIEVEMENTS</h2>
+<div class="two">
+<div class="win"><div class="bd"><h3>☁️ AWS Certified Cloud Practitioner</h3><small>CLF-C02 · UDEMY · OCT 2026</small><div class="tags"><span>AWS</span><span>Cloud</span></div></div></div>
+<div class="win"><div class="bd"><h3>🌐 Cloud Computing Fundamentals</h3><small>IBM SKILLBUILD · OCT 2026</small><div class="tags"><span>IBM</span><span>Cloud</span></div></div></div>
+<div class="win"><div class="bd"><h3>⛓️ Blockchain Core Principles</h3><small>INFOSYS SPRINGBOARD · JAN 2026</small><div class="tags"><span>Blockchain</span></div></div></div>
+<div class="win"><div class="bd"><h3>🏆 Ideathon Winner (1st Place)</h3><small>INTERNAL COLLEGE IDEATHON ON AI · 2025</small><div class="tags"><span>AI</span><span>Innovation</span></div></div></div>
+<div class="win"><div class="bd"><h3>💀 TryHackMe: 5+ Courses</h3><p>Ransomware analysis, Blue Team SOC operations, and Penetration Testing fundamentals</p><div class="tags"><span>SOC</span><span>Blue Team</span><span>Pen Testing</span></div></div></div>
+<div class="win"><div class="bd"><h3>🛡️ Cybersecurity Hackathon Organizer</h3><p>Organized a university-level cybersecurity hackathon, coordinating teams and challenges</p><div class="tags"><span>Leadership</span><span>Cybersecurity</span></div></div></div>
+</div></section>
+
+<section id="skills" class="sec"><h2 data-n="03">SKILLS.EXE</h2>
+<div class="two">
+<div class="win"><div class="tb"><span>~/skills/tools</span></div><div class="bd"><div class="tags" style="margin:0"><span>Linux</span><span>Windows</span><span>Nmap</span><span>Wireshark</span></div></div></div>
+<div class="win"><div class="tb"><span>~/skills/languages</span></div><div class="bd"><div class="tags" style="margin:0"><span>Python</span><span>C</span><span>Java (foundational)</span></div></div></div>
+<div class="win" style="grid-column:1/-1"><div class="tb"><span>~/skills/domain</span></div><div class="bd"><div class="tags" style="margin:0"><span>Machine Learning</span><span>NLP</span><span>Computer Networks</span><span>Ethical Hacking</span><span>Malware Analysis</span><span>Phishing</span><span>Brute-Force</span><span>Prompt Engineering</span></div></div></div>
+</div></section>
+
+<section id="projects" class="sec"><h2 data-n="04">PROJECTS.LOG</h2>
+<div class="two">
+<div class="win"><div class="tb"><span>~/projects/ssh-honeypot-ide</span></div><div class="bd"><h3>🪤 SSH Honeypot IDE</h3><small>PYTHON · SQLITE · PARAMIKO · FLASK</small>
+<ul><li>Custom Python SSH honeypot that simulates an SSH service and captures unauthorized connection attempts in a controlled environment.</li><li>Socket-based listeners on port 2222 record attacker IP addresses, with multithreaded handling for concurrent attempts.</li><li>Threshold-based brute-force detection triggers alerts for suspicious IPs; SQLite structured logging and Ubuntu-based attack simulations to analyze patterns.</li></ul>
+<pre class="log">sample output (documentation IPs)
+[INFO] listening on port 2222
+[ALERT] auth attempt user=root src=203.0.113.24
+[<span class="r">ALERT</span>] brute-force threshold exceeded src=203.0.113.24</pre></div></div>
+<div class="win"><div class="tb"><span>~/projects/studybuddy-ai</span></div><div class="bd"><h3>📚 StudyBuddy AI</h3><small>REACT · NODE.JS · LANGCHAIN · LANGGRAPH · AI/LLM</small>
+<ul><li>AI-powered personalized learning platform that generates adaptive study plans from subjects, exam dates, study hours, topic difficulty, and student mastery.</li><li>Multi-agent LangGraph workflows for topic assessment, curriculum analysis, priority ranking, learning strategies, quizzes, and study-plan creation.</li><li>Adaptive system tracking mastery, misconceptions, and quiz performance, with deterministic replanning when tasks are completed or missed.</li><li>React interfaces for AI tutoring, notes, flashcards, quizzes, and progress tracking, with structured LLM outputs and fallbacks when AI services are down.</li></ul></div></div>
+<div class="win"><div class="tb"><span>~/projects/storyforge</span></div><div class="bd"><h3>📖 StoryForge</h3><small>PYTHON · FASTAPI · JAVASCRIPT · AI/LLM · IMAGE GENERATION</small>
+<ul><li>AI-powered storybook platform that turns user ideas into structured stories with characters, scenes, and illustrations.</li><li>LLM story and scene generation supporting local and OpenAI-compatible model backends.</li><li>Character and scene context management for visual and narrative consistency across pages.</li><li>Multiple image-generation backends, a FastAPI backend with an interactive web UI, and automated storybook rendering.</li></ul></div></div>
+<div class="win"><div class="tb"><span>~/projects/phishing-simulator</span></div><div class="bd"><h3>🎣 Email Phishing Simulator</h3><small>GOPHISH · ETHICAL HACKING</small>
+<p>A phishing simulation prototype built with GoPhish to understand how phishing attacks are structured. Run entirely locally with no real users or sensitive data: an ethical, educational experiment to help strengthen defenses.</p>
+<div class="tags"><span>GoPhish</span><span>Phishing Simulation</span><span>Awareness Training</span></div></div></div>
+</div></section>
+
+<section id="repos" class="sec"><h2 data-n="05">GITHUB.LIVE</h2>
+<div class="win"><div class="tb"><span>~/github/Gurucharannambi</span></div><div class="bd" id="repolist"></div></div></section>
+
+<section id="contact" class="sec"><h2 data-n="06">GET_IN_TOUCH</h2>
+<div class="win"><div class="tb"><span>~/contact.sh</span></div><div class="bd">
+<p>Let's Connect. Whether it's cybersecurity, a project collab, or just a conversation about network security, my inbox is always open.</p>
+<p class="big"><a href="mailto:gurucharannambi@gmail.com">gurucharannambi@gmail.com</a></p>
+<div class="cta"><a class="btn" href="https://github.com/Gurucharannambi" target="_blank" rel="noopener">GitHub</a><a class="btn alt" href="https://www.linkedin.com/in/gurucharan-reddy-nambi-7b99b92a7/" target="_blank" rel="noopener">LinkedIn</a><a class="btn alt" href="mailto:gurucharannambi@gmail.com">Email</a></div>
+</div></div></section>
+</main>
+<footer>Designed &amp; Built by Gurucharan Reddy Nambi · © 2026</footer>
+<noscript><p style="position:relative;z-index:3;padding:20px">Gurucharan Reddy Nambi, B.Tech CSE (AI), cybersecurity. gurucharannambi@gmail.com</p></noscript>
+<script>
+(function(){
+var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,all=false,T=[];
+/* wrap every text node so many cursors can type in parallel with no layout shift */
+function prep(root){
+  var w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),n,list=[];
+  while(n=w.nextNode()){if(/\S/.test(n.nodeValue)&&!n.parentNode.closest('script,style,noscript,.ty'))list.push(n)}
+  list.forEach(function(n){
+    var txt=n.nodeValue.replace(/[ \t\r\n]+/g,function(m){return /\n/.test(m)&&n.parentNode.tagName==='PRE'?'\n':' '});
+    if(n.parentNode.tagName==='PRE')txt=n.nodeValue;
+    var s=document.createElement('span');s.className='ty';
+    s.innerHTML='<span class="v"></span><i class="cur"></i><span class="h"></span>';
+    s.lastChild.textContent=txt;n.parentNode.replaceChild(s,n);
+    T.push({el:s,v:s.firstChild,h:s.lastChild,txt:txt,i:0,cps:Math.max(38,txt.length/4.5),t0:0,on:false,done:false});
+  });
+}
+function begin(root,base){
+  var k=0;T.forEach(function(t){
+    if(t.on||!root.contains(t.el))return;
+    t.on=true;t.t0=performance.now()+(base||0)+Math.random()*350+Math.min(k++*14,700);t.el.classList.add('on');
+  });
+  root.querySelectorAll('.tr i').forEach(function(b){setTimeout(function(){b.style.width=b.dataset.w+'%'},500)});
+}
+function fin(t){t.done=true;t.v.textContent=t.txt;t.h.textContent='';t.el.classList.remove('on')}
+function loop(now){
+  T.forEach(function(t){
+    if(!t.on||t.done)return;
+    if(all){fin(t);return}
+    var e=now-t.t0;if(e<0)return;
+    var i=Math.min(t.txt.length,Math.floor(e/1000*t.cps));
+    if(i!==t.i){t.i=i;t.v.textContent=t.txt.slice(0,i);t.h.textContent=t.txt.slice(i)}
+    if(i>=t.txt.length)fin(t);
+  });
+  requestAnimationFrame(loop);
+}
+/* github repos (works on the live site; falls back when the API is unreachable) */
+function repos(){
+  var box=document.getElementById('repolist');
+  var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){ctl&&ctl.abort()},3500);
+  return fetch('https://api.github.com/users/Gurucharannambi/repos?sort=updated&per_page=6',ctl?{signal:ctl.signal}:{})
+   .then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(d){
+     if(!d.length)throw 0;
+     var h='<p class="pr" style="margin-bottom:14px">ls repos/ --recent</p>';
+     d.forEach(function(r){h+='<p><a href="'+r.html_url+'" target="_blank" rel="noopener">'+r.name+'</a> '+(r.description?'- '+r.description.replace(/</g,'&lt;'):'')+'</p>'});
+     box.innerHTML=h;
+   }).catch(function(){
+     var G='https://github.com/Gurucharannambi/';box.innerHTML='<p class="pr" style="margin-bottom:14px">ls repos/ --popular</p><p><a href="'+G+'Phishing_sim" target="_blank" rel="noopener">Phishing_sim</a> - phishing simulation project (HTML)</p><p><a href="'+G+'Nmap" target="_blank" rel="noopener">Nmap</a> - local network scan using Nmap TCP SYN scan to find active hosts, open ports and services, and assess security risks</p><p><a href="'+G+'PRODIGY-TASK-1" target="_blank" rel="noopener">PRODIGY-TASK-1</a> (HTML) · <a href="'+G+'PRODIGY-TASK-2" target="_blank" rel="noopener">PRODIGY-TASK-2</a> (JavaScript) · <a href="'+G+'PRODIGY-TASK-3" target="_blank" rel="noopener">PRODIGY-TASK-3</a> (CSS) · <a href="'+G+'PRODIGY-TASK-4" target="_blank" rel="noopener">PRODIGY-TASK-4</a> (CSS)</p><p>32 public repositories in total:</p><p><a class="btn" href="https://github.com/Gurucharannambi?tab=repositories" target="_blank" rel="noopener">Browse all repositories</a></p>';
+   }).then(function(){clearTimeout(tm);prep(box)});
+}
+/* matrix rain */
+function rain(){
+  var c=document.getElementById('rain'),x=c.getContext('2d'),f=15,cols,y;
+  function size(){c.width=innerWidth;c.height=innerHeight;cols=Math.ceil(c.width/f);y=[];for(var i=0;i<cols;i++)y[i]=Math.random()*-50}
+  size();addEventListener('resize',size);
+  var ch='01{}<>/#$%&=;:ABCDEF0123456789';
+  setInterval(function(){if(document.hidden)return;
+    x.fillStyle='rgba(3,8,12,.12)';x.fillRect(0,0,c.width,c.height);x.fillStyle='#00ff9c';x.font=f+'px monospace';
+    for(var i=0;i<cols;i++){x.fillText(ch[Math.random()*ch.length|0],i*f,y[i]*f);if(y[i]*f>c.height&&Math.random()>.975)y[i]=0;y[i]++}
+  },70);
+}
+var boot=document.getElementById('boot');
+prep(document.body);
+var targets=[].slice.call(document.querySelectorAll('nav,#hero,.sec,footer'));
+if(reduce){all=true;T.forEach(function(t){t.on=true});document.querySelectorAll('.tr i').forEach(function(b){b.style.width=b.dataset.w+'%'});boot.remove();repos();}
+else{
+  rain();requestAnimationFrame(loop);
+  begin(boot,0);boot.querySelector('.pb i').style.width='100%';
+  setTimeout(function(){boot.classList.add('out');setTimeout(function(){boot.remove()},550);
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;io.unobserve(e.target);
+      if(e.target.id==='repos')repos().then(function(){begin(e.target,0)});else begin(e.target,0);
+    })},{threshold:.12});
+    targets.forEach(function(t){io.observe(t)});
+    begin(document.querySelector('nav'),0);
+  },1800);
+}
+document.getElementById('skip').addEventListener('click',function(){all=true;T.forEach(function(t){t.on=true});document.querySelectorAll('.tr i').forEach(function(b){b.style.width=b.dataset.w+'%'})});
+addEventListener('keydown',function(e){if(e.key==='Escape')document.getElementById('skip').click()});
+})();
+</script>
+</body>
+</html>
